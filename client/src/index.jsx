@@ -17,13 +17,11 @@ class App extends React.Component {
 
     $.ajax({
       type: "POST",
-      url: "http://localhost:1128/repos/",
+      url: "http://127.0.0.1:1128/repos",
       data: JSON.stringify({ username }),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function() {
-        console.log('sent');
-      },
+      success: function(data){alert(data);},
       failure: function(errMsg) {
           alert(errMsg);
       }
