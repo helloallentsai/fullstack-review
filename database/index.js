@@ -1,8 +1,18 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/fetcher');
+mongoose.connect('mongodb://localhost/fetcher', { useMongoClient: true });
+
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Database connected')
+});
 
 let repoSchema = mongoose.Schema({
-  // TODO: your schema here!
+  id: Number,
+  username: String,
+  reponame: String,
+  repourl: String,
+  popularity: Number,
 });
 
 let Repo = mongoose.model('Repo', repoSchema);
@@ -13,4 +23,5 @@ let save = (/* TODO */) => {
   // the MongoDB
 }
 
+module.exports = db;
 module.exports.save = save;
