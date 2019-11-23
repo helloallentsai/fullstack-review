@@ -20,7 +20,7 @@ class App extends React.Component {
   getRepos() {
     $.ajax({
       type: 'GET',
-      url: "http://127.0.0.1:1128/repos",
+      url: "https://vast-garden-53209.herokuapp.com/repos",
       success: (data) => {
         this.setState({
           repos: data,
@@ -40,7 +40,7 @@ class App extends React.Component {
   search(username) {
     $.ajax({
       type: "POST",
-      url: "http://127.0.0.1:1128/repos",
+      url: "https://vast-garden-53209.herokuapp.com/repos",
       data: JSON.stringify({ username }),
       contentType: "application/json; charset=utf-8",
       success: () => {
