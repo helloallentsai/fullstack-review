@@ -1,9 +1,9 @@
 const express = require('express');
 const morgan = require('morgan');
 const parser = require('body-parser');
+require('dotenv').config();
 const db = require('../database/index.js');
 const helper = require('../helpers/github.js');
-require('dotenv').config();
 
 let app = express();
 
@@ -39,7 +39,7 @@ app.get('/repos', function (req, res) {
 let port = process.env.PORT || 1128;
 
 app.listen(port, function() {
-  console.log(`listening on port ${port}`);
+  console.log(`listening on port ${port} - ${process.env.MONGODB_URL}`);
 });
 
 
