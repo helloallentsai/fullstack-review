@@ -20,7 +20,7 @@ let repoSchema = mongoose.Schema({
 let Repo = mongoose.model('Repo', repoSchema);
 
 let save = (entries, callback) => {
-  console.log(3);
+
   entries = JSON.parse(entries);
 
   const data = [];
