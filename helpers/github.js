@@ -2,7 +2,7 @@ const request = require('request');
 const config = require('../config.js');
 const db = require('../database/index.js')
 
-let getReposByUsername = (username) => {
+let getReposByUsername = (username, callback) => {
 
   let options = {
     url: `https://api.github.com/users/${username}/repos`,
@@ -13,12 +13,7 @@ let getReposByUsername = (username) => {
     }
   };
 
-  request(options, (err, res, data) => {
-    if (err) {
-      console.log(err);
-    }
-    db.save(data);
-  });
+  request(options, (callback));
 
 }
 

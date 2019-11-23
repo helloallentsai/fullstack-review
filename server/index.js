@@ -14,10 +14,17 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.post('/repos', function (req, res) {
   const { username } = req.body;
 
-  return new Promise((resolve, reject) => {
-    resolve(helper.getReposByUsername(username));
+  helper.getReposByUsername(username, (err1, response, data) => {
+    if (err1) {
+      console.log(err1)
+    }
+    db.save(data, (err2, result) => {
+      if (err2) {
+        console.log(err2);
+      }
+      res.send('Thanks');
+    });
   })
-    .then(res.end('Thanks'));
 
 });
 

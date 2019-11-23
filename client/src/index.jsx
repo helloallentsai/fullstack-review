@@ -21,8 +21,10 @@ class App extends React.Component {
     $.ajax({
       type: 'GET',
       url: "http://127.0.0.1:1128/repos",
-      success: function(data) {
-        // console.log(data);
+      success: (data) => {
+        this.setState({
+          repos: data,
+        })
       },
       failure: function(errMsg) {
         alert(errMsg);
@@ -41,19 +43,13 @@ class App extends React.Component {
       url: "http://127.0.0.1:1128/repos",
       data: JSON.stringify({ username }),
       contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      success: function(data) {
-        console.log('WORK');
+      success: () => {
         this.getRepos();
       },
       failure: function(errMsg) {
           alert(errMsg);
       }
     });
-      // .done(data => {
-      //   console.log('hi');
-      //   this.getRepos();
-      // });
   }
 
   render () {

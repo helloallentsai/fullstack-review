@@ -17,7 +17,7 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-let save = (entries) => {
+let save = (entries, callback) => {
 
   entries = JSON.parse(entries);
 
@@ -33,7 +33,7 @@ let save = (entries) => {
   });
   console.log(data);
   Repo.collection.insert(data, (err, docs) => {
-
+    callback(null, 1)
   });
 }
 
