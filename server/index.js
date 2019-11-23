@@ -13,17 +13,18 @@ app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/repos', function (req, res) {
   const { username } = req.body;
-  helper.getReposByUsername(username);
-  res.end('Thanks')
+
+  return new Promise((resolve, reject) => {
+    resolve(helper.getReposByUsername(username));
+  })
+    .then(res.end('Thanks'));
+
 });
 
 app.get('/repos', function (req, res) {
-  // console.log
-  // console.log(db.Repo.find({}).sort({popularity: -1}));
-  db.get().then(data => res.send(data));
-  // res.send(db.get());
-  // let test = JSON.stringify('testing');
-  // res.send(test);
+
+  db.get()
+    .then(data => res.send(data));
 
 });
 

@@ -10,7 +10,7 @@ const RepoList = (props) => {
           <tbody>
             <tr>
               <th className="category">
-                id
+                number
               </th>
               <th className="category">
                 github username
@@ -25,7 +25,7 @@ const RepoList = (props) => {
                 popularity
               </th>
             </tr>
-            {props.repos.map(repo => <Repo repo={repo} key={repo.id} />)}
+            {props.repos.map((repo, idx) => <Repo repo={repo} key={repo.id} num={idx+1} />)}
           </tbody>
         </table>
       </div>
@@ -34,12 +34,12 @@ const RepoList = (props) => {
 }
 
 const Repo = (props) => {
-  const { id, username, reponame, repourl, popularity } = props.repo;
+  const { username, reponame, repourl, popularity } = props.repo;
 
   return (
     <tr>
-      <td className="id">
-        {id}
+      <td className="num">
+        {props.num}
       </td>
       <td className="username">
         {username}

@@ -31,29 +31,19 @@ let save = (entries) => {
       popularity: entry.watchers_count,
     });
   });
+  console.log(data);
+  Repo.collection.insert(data, (err, docs) => {
 
-  Repo.collection.insert(data[0], (err, docs) => {
-    console.log('data inserted');
-    // console.log(docs);
   });
-
-  Repo.find({}).sort({popularity: -1})
-    .exec((err, docs) => {
-      console.log(docs);
-    });
-  // Repo.collection.insert(data, (err, docs) => {
-  //   console.log('data inserted');
-  //   console.log(docs);
-  // })
-  // db.fetcher.insert(data[0]);
-  // db.fetcher.insertMany(data);
-
 }
 
 let get = () => {
   return new Promise((resolve, reject) => {
 
-    Repo.find({}).sort({popularity: -1})
+    Repo
+      .find({})
+      .sort({popularity: -1})
+      .limit(25)
       .exec((err, docs) => {
         resolve(docs);
       });
