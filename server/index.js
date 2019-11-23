@@ -12,19 +12,19 @@ app.use(morgan('dev'));
 app.use(express.static(__dirname + '/../client/dist'));
 
 app.post('/repos', function (req, res) {
-  // TODO - your code here!
-  // This route should take the github username provided
-  // and get the repo information from the github API, then
-  // save the repo information in the database
-  console.log(req.body);
   const { username } = req.body;
   helper.getReposByUsername(username);
   res.end('Thanks')
 });
 
 app.get('/repos', function (req, res) {
-  // TODO - your code here!
-  // This route should send back the top 25 repos
+  // console.log
+  // console.log(db.Repo.find({}).sort({popularity: -1}));
+  db.get().then(data => res.send(data));
+  // res.send(db.get());
+  // let test = JSON.stringify('testing');
+  // res.send(test);
+
 });
 
 let port = 1128;

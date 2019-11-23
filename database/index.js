@@ -34,8 +34,13 @@ let save = (entries) => {
 
   Repo.collection.insert(data[0], (err, docs) => {
     console.log('data inserted');
-    console.log(docs);
-  })
+    // console.log(docs);
+  });
+
+  Repo.find({}).sort({popularity: -1})
+    .exec((err, docs) => {
+      console.log(docs);
+    });
   // Repo.collection.insert(data, (err, docs) => {
   //   console.log('data inserted');
   //   console.log(docs);
@@ -45,5 +50,16 @@ let save = (entries) => {
 
 }
 
+let get = () => {
+  return new Promise((resolve, reject) => {
+
+    Repo.find({}).sort({popularity: -1})
+      .exec((err, docs) => {
+        resolve(docs);
+      });
+  });
+}
+
 module.exports = db;
 module.exports.save = save;
+module.exports.get = get;

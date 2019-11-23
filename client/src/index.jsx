@@ -13,8 +13,25 @@ class App extends React.Component {
 
   }
 
-  search (username) {
+  componentDidMount() {
+    $.ajax({
+      type: 'GET',
+      url: "http://127.0.0.1:1128/repos",
+      success: function(data) {
+        // console.log(data);
+      },
+      failure: function(errMsg) {
+        alert(errMsg);
+      }
+    })
+      .done(data => {
+        this.setState({
+          repos: data,
+        })
+      });
+  }
 
+  search (username) {
     $.ajax({
       type: "POST",
       url: "http://127.0.0.1:1128/repos",
