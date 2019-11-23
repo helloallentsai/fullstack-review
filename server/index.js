@@ -17,7 +17,6 @@ app.post('/repos', function (req, res) {
 
   helper.getReposByUsername(username, (err1, response, data) => {
     if (err1) {
-      console.log(err1)
     }
     db.save(data, (err2, result) => {
       if (err2) {
@@ -39,7 +38,7 @@ app.get('/repos', function (req, res) {
 let port = process.env.PORT || 1128;
 
 app.listen(port, function() {
-  console.log(`listening on port ${port} - ${process.env.MONGODB_URL}`);
+  console.log(`listening on port ${port}`);
 });
 
 
