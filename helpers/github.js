@@ -1,5 +1,4 @@
 const request = require('request');
-// const config = require('../config.js');
 const db = require('../database/index.js')
 
 let getReposByUsername = (username, callback) => {
@@ -8,7 +7,7 @@ let getReposByUsername = (username, callback) => {
     url: `https://api.github.com/users/${username}/repos`,
     headers: {
       'User-Agent': 'request',
-      'Authorization': `token ${TOKEN}`,
+      'Authorization': `token ${process.env.TOKEN}`,
       // 'Accept': 'application/vnd.github.v3+json',
     }
   };

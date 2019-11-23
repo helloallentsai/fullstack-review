@@ -31,7 +31,7 @@ let save = (entries, callback) => {
       popularity: entry.watchers_count,
     });
   });
-  console.log(data);
+  // console.log(data);
   Repo.collection.insert(data, (err, docs) => {
     callback(null, 1)
   });
@@ -39,7 +39,6 @@ let save = (entries, callback) => {
 
 let get = () => {
   return new Promise((resolve, reject) => {
-
     Repo
       .find({})
       .sort({popularity: -1})

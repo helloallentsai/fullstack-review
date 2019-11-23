@@ -20,7 +20,7 @@ class App extends React.Component {
   getRepos() {
     $.ajax({
       type: 'GET',
-      url: "https://vast-garden-53209.herokuapp.com/repos",
+      url: "/repos",
       success: (data) => {
         this.setState({
           repos: data,
@@ -30,17 +30,12 @@ class App extends React.Component {
         alert(errMsg);
       }
     })
-      .done(data => {
-        this.setState({
-          repos: data,
-        })
-      });
   }
 
   search(username) {
     $.ajax({
       type: "POST",
-      url: "https://vast-garden-53209.herokuapp.com/repos",
+      url: "/repos",
       data: JSON.stringify({ username }),
       contentType: "application/json; charset=utf-8",
       success: () => {

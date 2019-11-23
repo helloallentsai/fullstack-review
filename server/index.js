@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const parser = require('body-parser');
 const db = require('../database/index.js');
 const helper = require('../helpers/github.js');
+require('dotenv').config();
 
 let app = express();
 
