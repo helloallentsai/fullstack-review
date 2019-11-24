@@ -38,14 +38,14 @@ a:hover {
   padding-top: 18px;
   padding-left: 12px;
   font-size: 14px;
-
+  background-color: #faf7c0;
   width: 788px;
 }
 
 table {
   padding-top: 20px;
   width: 800px;
-
+  background-color: #faf7c0;
 }
 
 tbody {
