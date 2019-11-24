@@ -50,7 +50,7 @@ class App extends React.Component {
   render () {
     return (<div>
         <div id="h1-title">
-          <h1>Github Fetcher</h1>
+          <h1><i className="fab fa-github"></i> Github Fetcher</h1>
         </div>
       <Search onSearch={this.search.bind(this)}/>
       <RepoList repos={this.state.repos}/>

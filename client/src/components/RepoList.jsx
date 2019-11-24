@@ -7,16 +7,16 @@ const RepoList = (props) => {
         <tbody>
           <tr>
             <th className="category">
-              number
+            <i className="fas fa-trophy"></i> rank
             </th>
             <th className="category">
-              github username
+            <i className="fas fa-users"></i> username
             </th>
             <th className="category">
-              github repo name
+            <i className="fas fa-code-branch"></i> repo name
             </th>
             <th className="category">
-              popularity
+              <i className="fas fa-fire-alt"></i> popularity
             </th>
           </tr>
           {props.repos.map((repo, idx) => <Repo repo={repo} key={repo.id} num={idx+1} />)}

@@ -33,7 +33,7 @@ let save = (entries, callback) => {
       popularity: entry.watchers_count,
     });
   });
-  // console.log(data);
+
   Repo.collection.insert(data, (err, docs) => {
     callback(null, 1)
   });
