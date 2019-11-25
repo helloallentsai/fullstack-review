@@ -49,7 +49,7 @@ table {
 }
 
 tbody {
-  background-color: #faf7c0;
+  background-color: #c7bf33;
 }
 
 th {
@@ -81,3 +81,4 @@ tr:nth-child(even) {
   grid-template-columns: 50% 50%;
   border: 1px dashed #14e09c;
 } */
+

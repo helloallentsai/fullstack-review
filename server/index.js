@@ -15,17 +15,10 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.post('/repos', function (req, res) {
   const { username } = req.body;
 
-  helper.getReposByUsername(username, (err1, response, data) => {
-    if (err1) {
-    }
-    db.save(data, (err2, result) => {
-      if (err2) {
-        console.log(err2);
-      }
-      res.send('Thanks');
-    });
-  })
-
+  helper.getReposByUsername(username)
+    .then(data => db.save(data))
+    .then(() => res.status(200).send('Thanks'))
+    .catch(err => console.log(err));
 });
 
 app.get('/repos', function (req, res) {

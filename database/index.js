@@ -19,7 +19,7 @@ let repoSchema = mongoose.Schema({
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-let save = (entries, callback) => {
+let save = (entries) => {
 
   entries = JSON.parse(entries);
 
@@ -35,7 +35,7 @@ let save = (entries, callback) => {
   });
 
   Repo.collection.insert(data, (err, docs) => {
-    callback(null, 1)
+    console.log('Data saved');
   });
 }
 
